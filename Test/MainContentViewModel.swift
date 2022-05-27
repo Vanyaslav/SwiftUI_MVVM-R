@@ -107,7 +107,7 @@ class MainContentViewModel: ObservableObject {
             .sink {
                 self.outputValue = $0.value.doubleValue
             }
-// option 1
+// option 3
             //.assign(to: \.state, on: self)
             .store(in: &subscriptions)
 
