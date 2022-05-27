@@ -18,51 +18,51 @@ extension MainContentViewModel {
 
 extension MainContentViewModel {
 // option 1
-//    struct State {
-//        var value: Decimal = 0
-//
-//        func apply(_ action: Event) -> Self {
-//            var state = self
-//            switch action {
-//            case .start:
-//                state.value = defaultValue
-//            case .progress(let value):
-//                state.value = value
-//            case .pressed:
-//                state.value += 0.1
-//            }
-//            if state.value > Decimal(maxValue) {
-//                state.value = 0
-//            }
-//            return state
-//        }
-//    }
-
-// option 2
     struct State {
-        let value: Decimal
+        var value: Decimal = 0
 
-        init(value: Decimal = 0) {
-            self.value = value
-        }
-
-        static func apply(_ action: Event, for state: State) -> Self {
+        func apply(_ action: Event) -> Self {
+            var state = self
             switch action {
             case .start:
-                return State(value: defaultValue)
+                state.value = defaultValue
             case .progress(let value):
-                return State(value: value)
+                state.value = value
             case .pressed:
-                let newState: State
-                let newValue = state.value + 0.1
-                newState = newValue > Decimal(maxValue)
-                ? State(value: 0)
-                : State(value: newValue)
-                return newState
+                state.value += 0.1
             }
+            if state.value > Decimal(maxValue) {
+                state.value = 0
+            }
+            return state
         }
     }
 
+// option 2
+//    struct State {
+//        let value: Decimal
+//
+//        init(value: Decimal = 0) {
+//            self.value = value
+//        }
+//
+//        static func apply(_ action: Event, for state: State) -> Self {
+//            switch action {
+//            case .start:
+//                return State(value: defaultValue)
+//            case .progress(let value):
+//                return State(value: value)
+//            case .pressed:
+//                let newState: State
+//                let newValue = state.value + 0.1
+//                newState = newValue > Decimal(maxValue)
+//                ? State(value: 0)
+//                : State(value: newValue)
+//                return newState
+//            }
+//        }
+//    }
+//
     enum Event {
         case start,
              pressed,
@@ -81,7 +81,7 @@ extension MainContentViewModel {
 }
 
 class MainContentViewModel: ObservableObject {
-    // option 1
+    // option 3
     // @Published private var state: State = State()
     private var subscriptions = Set<AnyCancellable>()
     // in
@@ -100,9 +100,9 @@ class MainContentViewModel: ObservableObject {
         Publishers
             .Merge3(loaded, pressed, progress)
 // option 2
-            .scan(State()) { state, event in  State.apply(event, for: state) }
+//           .scan(State()) { state, event in  State.apply(event, for: state) }
 // option 1
-//            .scan(State()) { state, event in state.apply(event) }
+            .scan(State()) { state, event in state.apply(event) }
 // option 2
             .sink {
                 self.outputValue = $0.value.doubleValue
@@ -116,6 +116,7 @@ class MainContentViewModel: ObservableObject {
 }
 
 extension MainContentViewModel {
+// option 3
 // alternatively you can sink proccesing in separe function,
 // but in that case you expose state to potentional misuse
 //    private func processState() {
