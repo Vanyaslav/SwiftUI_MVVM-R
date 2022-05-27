@@ -17,7 +17,7 @@ extension MainContentViewModel {
 }
 
 extension MainContentViewModel {
-    // option 1
+// option 1
 //    struct State {
 //        var value: Decimal = 0
 //
@@ -38,7 +38,7 @@ extension MainContentViewModel {
 //        }
 //    }
 
-    // option 2
+// option 2
     struct State {
         let value: Decimal
 
@@ -81,7 +81,7 @@ extension MainContentViewModel {
 }
 
 class MainContentViewModel: ObservableObject {
-    // private
+    // option 1
     // @Published private var state: State = State()
     private var subscriptions = Set<AnyCancellable>()
     // in
@@ -99,20 +99,25 @@ class MainContentViewModel: ObservableObject {
 
         Publishers
             .Merge3(loaded, pressed, progress)
+// option 2
             .scan(State()) { state, event in  State.apply(event, for: state) }
+// option 1
 //            .scan(State()) { state, event in state.apply(event) }
+// option 2
             .sink {
                 self.outputValue = $0.value.doubleValue
             }
+// option 1
             //.assign(to: \.state, on: self)
             .store(in: &subscriptions)
-// alternatively you can sink proccesing in separe the function,
-// but in that case you expose state to potentional misuse
+
 //       processState()
     }
 }
 
 extension MainContentViewModel {
+// alternatively you can sink proccesing in separe function,
+// but in that case you expose state to potentional misuse
 //    private func processState() {
 //        $state
 //            .sink {
