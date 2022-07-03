@@ -24,7 +24,7 @@ class MainRouter {
         self.context = context
     }
 
-    var detailView: NavigationLink<EmptyView, DetailContentView> {
+    var detailViewNavigation: NavigationLink<EmptyView, DetailContentView> {
         NavigationLink(destination: DetailContentView(with: DetailContentViewModel(context.data)),
                        isActive: $context.showDetailView)
         { EmptyView() }

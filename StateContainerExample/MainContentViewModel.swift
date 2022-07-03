@@ -39,8 +39,10 @@ class MainContentViewModel: ObservableObject {
 
         $showDetailPressed
             .dropFirst()
-            .map { [self] _ in Decimal(outputValue) }
-            .assign(to: \.data, on: router.context)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                router.context.data = Decimal(self.outputValue)
+            }
             .store(in: &subscriptions)
     }
 }

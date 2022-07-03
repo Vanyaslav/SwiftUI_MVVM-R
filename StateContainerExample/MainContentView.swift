@@ -33,7 +33,7 @@ struct MainContentView: View {
                     .padding()
                     .background(Color.orange.opacity(0.8))
                 // navigation linx
-                viewModel.router.detailView
+                viewModel.router.detailViewNavigation
 
             }.onAppear { viewModel.viewLoaded.send() }
         }
