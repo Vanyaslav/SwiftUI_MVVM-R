@@ -18,7 +18,7 @@ class AppContext: ObservableObject {
 }
 
 class AppRouter {
-    @ObservedObject var context: AppContext
+    @ObservedObject private var context: AppContext
 
     init(context: AppContext = AppContext()) {
         self.context = context
