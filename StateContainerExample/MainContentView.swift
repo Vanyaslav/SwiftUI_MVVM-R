@@ -15,18 +15,27 @@ struct MainContentView: View {
     }
     
     var body: some View {
-        VStack {
-            Button { viewModel.buttonPressed.send() } label: { Text("Progress !!!") }
-                .frame(width: 150, height: 40, alignment: .center)
-                .background(Color.black.opacity(0.8))
+        NavigationView {
+            VStack {
+                Button { viewModel.makeProgressPressed.send() } label: { Text("Progress !!!") }
+                    .padding()
+                    .background(Color.black.opacity(0.8))
 
-            Text("Recent value: \(viewModel.outputValue)")
+                Text("Recent value: \(viewModel.outputValue)")
 
-            Slider(value: Binding<Double>(
-                get: { viewModel.outputValue },
-                set: { viewModel.manualProgress = $0 }),
-                   in: 0...MainContentViewModel.maxValue)
+                Slider(value: Binding<Double>(
+                    get: { viewModel.outputValue },
+                    set: { viewModel.manualProgress = $0 }),
+                       in: 0...MainContentViewModel.maxValue)
+                .padding()
 
-        }.onAppear { viewModel.viewLoaded.send() }
+                Button { viewModel.showDetailPressed = () } label: { Text("Show detail !!!") }
+                    .padding()
+                    .background(Color.orange.opacity(0.8))
+                // navigation linx
+                viewModel.router.detailView
+
+            }.onAppear { viewModel.viewLoaded.send() }
+        }
     }
 }
