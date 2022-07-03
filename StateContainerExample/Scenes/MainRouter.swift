@@ -14,7 +14,7 @@ class AppContext: ObservableObject {
         }
     }
 
-    @Published var showDetailView: Bool = false
+    @Published var   showDetailView: Bool = false
 }
 
 class MainRouter {
@@ -22,6 +22,11 @@ class MainRouter {
 
     init(context: AppContext = AppContext()) {
         self.context = context
+    }
+
+    var mainView: MainContentView {
+        MainContentView(with: .init(with: context),
+                        router: self)
     }
 
     var detailViewNavigation: NavigationLink<EmptyView, DetailContentView> {

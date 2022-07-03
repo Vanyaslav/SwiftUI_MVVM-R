@@ -18,11 +18,7 @@ class MainContentViewModel: ObservableObject {
     // out
     @Published private (set) var outputValue: Double = 0
 
-    var router: MainRouter
-
-    init(with router: MainRouter) {
-        self.router = router
-        
+    init(with context: AppContext) {
         let loaded = viewLoaded.map { _ in Event.start }
         let pressed = makeProgressPressed.map { _ in Event.pressed }
         let progress = $manualProgress.map { Event.progress(value: Decimal($0)) }
@@ -41,7 +37,7 @@ class MainContentViewModel: ObservableObject {
             .dropFirst()
             .sink { [weak self] _ in
                 guard let self = self else { return }
-                router.context.data = Decimal(self.outputValue)
+                context.data = Decimal(self.outputValue)
             }
             .store(in: &subscriptions)
     }

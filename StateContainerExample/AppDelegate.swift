@@ -12,7 +12,7 @@ struct TestApp: App {
     var body: some Scene {
 
         WindowGroup {
-            MainContentView(with: .init(with: MainRouter()))
+            MainRouter().mainView
         }
     }
 }

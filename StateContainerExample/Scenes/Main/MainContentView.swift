@@ -9,9 +9,12 @@ import SwiftUI
 
 struct MainContentView: View {
     @ObservedObject private var viewModel: MainContentViewModel
+    private let router: MainRouter
     
-    init(with viewModel: MainContentViewModel) {
+    init(with viewModel: MainContentViewModel,
+         router: MainRouter) {
         self.viewModel = viewModel
+        self.router = router
     }
     
     var body: some View {
@@ -32,8 +35,8 @@ struct MainContentView: View {
                 Button { viewModel.showDetailPressed = () } label: { Text("Show detail !!!") }
                     .padding()
                     .background(Color.orange.opacity(0.8))
-                // navigation linx
-                viewModel.router.detailViewNavigation
+
+                router.detailViewNavigation
 
             }.onAppear { viewModel.viewLoaded.send() }
         }
