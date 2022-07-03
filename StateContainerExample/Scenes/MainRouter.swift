@@ -8,7 +8,7 @@
 import SwiftUI
 
 class AppContext: ObservableObject {
-    @Published var data: Decimal = 0 {
+    var data: Decimal = 0 {
         didSet {
             showDetailView = true
         }
@@ -25,7 +25,7 @@ class MainRouter {
     }
 
     var detailViewNavigation: NavigationLink<EmptyView, DetailContentView> {
-        NavigationLink(destination: DetailContentView(with: DetailContentViewModel(context.data)),
+        NavigationLink(destination: .init(with: .init(context.data)),
                        isActive: $context.showDetailView)
         { EmptyView() }
     }
