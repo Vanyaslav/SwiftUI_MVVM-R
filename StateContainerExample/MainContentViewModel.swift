@@ -81,13 +81,11 @@ extension MainContentViewModel {
 }
 
 class MainContentViewModel: ObservableObject {
-    // option 3
-    // @Published private var state: State = State()
     private var subscriptions = Set<AnyCancellable>()
     // in
     let viewLoaded: PassthroughSubject<Void, Never> = PassthroughSubject()
     let buttonPressed: PassthroughSubject<Void, Never> = PassthroughSubject()
-    // cannot use CurrentValueSubject type with SwiftUI Slider object
+
     @Published var manualProgress: Double = 0
     // out
     @Published private (set) var outputValue: Double = 0
@@ -103,29 +101,10 @@ class MainContentViewModel: ObservableObject {
 //           .scan(State()) { state, event in  State.apply(event, for: state) }
 // option 1
             .scan(State()) { state, event in state.apply(event) }
-// option 2
-            .sink {
-                self.outputValue = $0.value.doubleValue
-            }
-// option 3
-            //.assign(to: \.state, on: self)
+            .map { $0.value.doubleValue }
+            .assign(to: \.outputValue, on: self)
             .store(in: &subscriptions)
-
-//       processState()
     }
-}
-
-extension MainContentViewModel {
-// option 3
-// alternatively you can sink proccesing in separe function,
-// but in that case you expose state to potentional misuse
-//    private func processState() {
-//        $state
-//            .sink {
-//                self.outputValue = $0.value.doubleValue
-//            }
-//            .store(in: &subscriptions)
-//    }
 }
 
 extension Decimal {

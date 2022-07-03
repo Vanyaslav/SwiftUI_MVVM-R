@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import Test
+@testable import StateContainerExample
 
-class TestTests: XCTestCase {
+class StateContainerExampleTests: XCTestCase {
     
 
     override func setUpWithError() throws {
