@@ -15,6 +15,7 @@ struct DetailContentView: View {
     }
 
     var body: some View {
-        Text(viewModel.data).font(.largeTitle)
+        Text(viewModel.data)
+            .font(.largeTitle)
     }
 }

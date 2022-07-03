@@ -9,25 +9,24 @@ import XCTest
 @testable import StateContainerExample
 
 class StateContainerExampleTests: XCTestCase {
-    
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testState() throws {
+        let router = MainRouter()
+        let viewModel = MainContentViewModel(with: router)
+        viewModel.viewLoaded.send()
+        XCTAssertEqual(Decimal(viewModel.outputValue), MainContentViewModel.defaultValue)
+        viewModel.manualProgress = 1.000001
+        viewModel.showDetailPressed = ()
+        XCTAssertEqual(router.context.data, 0)
+        viewModel.manualProgress = 0.99999999
+        viewModel.showDetailPressed = ()
+        XCTAssertEqual(router.context.data, 0.99999999)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testNavigation() throws {
+        let router = MainRouter()
+        let viewModel = MainContentViewModel(with: router)
+        XCTAssertEqual(router.context.showDetailView, false)
+        viewModel.showDetailPressed = ()
+        XCTAssertEqual(router.context.showDetailView, true)
     }
-
-    func testExample() throws {
-
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

@@ -27,13 +27,6 @@
 			remoteGlobalIDString = A13E422527F70D2400E9582E;
 			remoteInfo = Test;
 		};
-		A13E424727F70D2A00E9582E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A13E421E27F70D2400E9582E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A13E422527F70D2400E9582E;
-			remoteInfo = Test;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +39,6 @@
 		A13E423727F70D2A00E9582E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A13E423C27F70D2A00E9582E /* StateContainerExampleStateContainerExamples.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StateContainerExampleStateContainerExamples.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13E424027F70D2A00E9582E /* StateContainerExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateContainerExampleTests.swift; sourceTree = "<group>"; };
-		A13E424627F70D2A00E9582E /* StateContainerExampleUIStateContainerExamples.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StateContainerExampleUIStateContainerExamples.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A148207B282E97A50024A38F /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		A1B7D6C828715C2500462CDD /* MainContentViewModel+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainContentViewModel+State.swift"; sourceTree = "<group>"; };
 		A1B7D6CA28715D3000462CDD /* DetailContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentViewModel.swift; sourceTree = "<group>"; };
@@ -62,13 +54,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A13E423927F70D2A00E9582E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A13E424327F70D2A00E9582E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -92,7 +77,6 @@
 			children = (
 				A13E422627F70D2400E9582E /* StateContainerExample.app */,
 				A13E423C27F70D2A00E9582E /* StateContainerExampleStateContainerExamples.xctest */,
-				A13E424627F70D2A00E9582E /* StateContainerExampleUIStateContainerExamples.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,24 +160,6 @@
 			productReference = A13E423C27F70D2A00E9582E /* StateContainerExampleStateContainerExamples.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A13E424527F70D2A00E9582E /* StateContainerExampleUIStateContainerExamples */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A13E425627F70D2A00E9582E /* Build configuration list for PBXNativeTarget "StateContainerExampleUIStateContainerExamples" */;
-			buildPhases = (
-				A13E424227F70D2A00E9582E /* Sources */,
-				A13E424327F70D2A00E9582E /* Frameworks */,
-				A13E424427F70D2A00E9582E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A13E424827F70D2A00E9582E /* PBXTargetDependency */,
-			);
-			name = StateContainerExampleUIStateContainerExamples;
-			productName = TestUITests;
-			productReference = A13E424627F70D2A00E9582E /* StateContainerExampleUIStateContainerExamples.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -208,10 +174,6 @@
 						CreatedOnToolsVersion = 13.3;
 					};
 					A13E423B27F70D2A00E9582E = {
-						CreatedOnToolsVersion = 13.3;
-						TestTargetID = A13E422527F70D2400E9582E;
-					};
-					A13E424527F70D2A00E9582E = {
 						CreatedOnToolsVersion = 13.3;
 						TestTargetID = A13E422527F70D2400E9582E;
 					};
@@ -232,7 +194,6 @@
 			targets = (
 				A13E422527F70D2400E9582E /* StateContainerExample */,
 				A13E423B27F70D2A00E9582E /* StateContainerExampleStateContainerExamples */,
-				A13E424527F70D2A00E9582E /* StateContainerExampleUIStateContainerExamples */,
 			);
 		};
 /* End PBXProject section */
@@ -248,13 +209,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A13E423A27F70D2A00E9582E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A13E424427F70D2A00E9582E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,13 +240,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A13E424227F70D2A00E9582E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -300,11 +247,6 @@
 			isa = PBXTargetDependency;
 			target = A13E422527F70D2400E9582E /* StateContainerExample */;
 			targetProxy = A13E423D27F70D2A00E9582E /* PBXContainerItemProxy */;
-		};
-		A13E424827F70D2A00E9582E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A13E422527F70D2400E9582E /* StateContainerExample */;
-			targetProxy = A13E424727F70D2A00E9582E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -501,7 +443,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanyslav.TestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanyslav.StateContainerExampleStateContainerExamplesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -521,48 +463,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanyslav.TestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanyslav.StateContainerExampleStateContainerExamplesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StateContainerExample.app/StateContainerExample";
-			};
-			name = Release;
-		};
-		A13E425727F70D2A00E9582E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 33XKR35SSN;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanyslav.TestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Test;
-			};
-			name = Debug;
-		};
-		A13E425827F70D2A00E9582E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 33XKR35SSN;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanyslav.TestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Test;
 			};
 			name = Release;
 		};
@@ -592,15 +498,6 @@
 			buildConfigurations = (
 				A13E425427F70D2A00E9582E /* Debug */,
 				A13E425527F70D2A00E9582E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A13E425627F70D2A00E9582E /* Build configuration list for PBXNativeTarget "StateContainerExampleUIStateContainerExamples" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A13E425727F70D2A00E9582E /* Debug */,
-				A13E425827F70D2A00E9582E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
