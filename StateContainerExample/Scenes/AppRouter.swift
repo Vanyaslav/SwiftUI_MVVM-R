@@ -1,5 +1,5 @@
 //
-//  MainRouter.swift
+//  AppRouter.swift
 //  Test
 //
 //  Created by Tomas Baculák on 17/05/2022.
@@ -14,10 +14,10 @@ class AppContext: ObservableObject {
         }
     }
 
-    @Published var   showDetailView: Bool = false
+    @Published var showDetailView: Bool = false
 }
 
-class MainRouter {
+class AppRouter {
     @ObservedObject var context: AppContext
 
     init(context: AppContext = AppContext()) {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A1357A2D2834495B0047752D /* MainContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1357A2C2834495A0047752D /* MainContentViewModel.swift */; };
-		A1357A2F2834498E0047752D /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1357A2E2834498E0047752D /* MainRouter.swift */; };
+		A1357A2F2834498E0047752D /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1357A2E2834498E0047752D /* AppRouter.swift */; };
 		A13E422A27F70D2400E9582E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13E422927F70D2400E9582E /* AppDelegate.swift */; };
 		A13E423327F70D2A00E9582E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A13E423227F70D2A00E9582E /* Assets.xcassets */; };
 		A13E423627F70D2A00E9582E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13E423427F70D2A00E9582E /* LaunchScreen.storyboard */; };
@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		A1357A2C2834495A0047752D /* MainContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewModel.swift; sourceTree = "<group>"; };
-		A1357A2E2834498E0047752D /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		A1357A2E2834498E0047752D /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		A13E422627F70D2400E9582E /* StateContainerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateContainerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13E422927F70D2400E9582E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A13E423227F70D2A00E9582E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		A1B7D6CE2871CD5700462CDD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A1357A2E2834498E0047752D /* MainRouter.swift */,
+				A1357A2E2834498E0047752D /* AppRouter.swift */,
 				A1B7D6CF2871CD6400462CDD /* Main */,
 				A1B7D6D12871CD9200462CDD /* Detail */,
 			);
@@ -248,7 +248,7 @@
 			files = (
 				A13E422A27F70D2400E9582E /* AppDelegate.swift in Sources */,
 				A1B7D6C928715C2500462CDD /* MainContentViewModel+State.swift in Sources */,
-				A1357A2F2834498E0047752D /* MainRouter.swift in Sources */,
+				A1357A2F2834498E0047752D /* AppRouter.swift in Sources */,
 				A1B7D6CD28715D4A00462CDD /* DetailContentView.swift in Sources */,
 				A1357A2D2834495B0047752D /* MainContentViewModel.swift in Sources */,
 				A148207C282E97A50024A38F /* MainContentView.swift in Sources */,

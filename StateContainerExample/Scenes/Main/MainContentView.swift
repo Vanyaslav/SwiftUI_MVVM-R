@@ -9,10 +9,10 @@ import SwiftUI
 
 struct MainContentView: View {
     @ObservedObject private var viewModel: MainContentViewModel
-    private let router: MainRouter
+    private let router: AppRouter
     
     init(with viewModel: MainContentViewModel,
-         router: MainRouter) {
+         router: AppRouter) {
         self.viewModel = viewModel
         self.router = router
     }
