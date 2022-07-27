@@ -21,11 +21,11 @@ class AppRouter {
     }
 
     var mainView: MainContentView {
-        MainContentView(with: .init(with: content), router: self)
+        .init(with: .init(with: content), router: self)
     }
 
-    var newDetailViewNavigation: NavigationLink<Text, DetailContentView>? {
-        NavigationLink(destination: DetailContentView(with: DetailContentViewModel(content.data)))
-        {  Text("Show detail !!!") }
+    var newDetailViewNavigation: NavigationLink<Text, DetailContentView> {
+        .init(destination: .init(with: .init(content.data)))
+        { Text("Show detail !!!") }
     }
 }
