@@ -7,31 +7,23 @@
 
 import SwiftUI
 
-class AppContext: ObservableObject {
-    var data: Decimal = 0 {
-        didSet {
-            showDetailView = true
-        }
-    }
-
-    @Published var showDetailView: Bool = false
+class AppContext {
+    var data: Decimal = 0
 }
 
 class AppRouter {
-    @ObservedObject private var context: AppContext
+    private var context: AppContext
 
     init(context: AppContext = AppContext()) {
         self.context = context
     }
 
     var mainView: MainContentView {
-        MainContentView(with: .init(with: context),
-                        router: self)
+        MainContentView(with: .init(with: context), router: self)
     }
 
-    var detailViewNavigation: NavigationLink<EmptyView, DetailContentView> {
-        NavigationLink(destination: .init(with: .init(context.data)),
-                       isActive: $context.showDetailView)
-        { EmptyView() }
+    var newDetailViewNavigation: NavigationLink<Text, DetailContentView>? {
+        NavigationLink(destination: DetailContentView(with: DetailContentViewModel(context.data)))
+        {  Text("Show detail !!!") }
     }
 }

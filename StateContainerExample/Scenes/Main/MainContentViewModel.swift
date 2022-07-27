@@ -13,7 +13,6 @@ class MainContentViewModel: ObservableObject {
     let viewLoaded: PassthroughSubject<Void, Never> = PassthroughSubject()
     let makeProgressPressed: PassthroughSubject<Void, Never> = PassthroughSubject()
 
-    @Published var showDetailPressed: Void = ()
     @Published var manualProgress: Double = 0
     // out
     @Published private (set) var outputValue: Double = 0
@@ -30,15 +29,12 @@ class MainContentViewModel: ObservableObject {
 // option 1
             .scan(State()) { state, event in state.apply(event) }
             .map { $0.value.doubleValue }
-            .assign(to: \.outputValue, on: self)
-            .store(in: &subscriptions)
+            .assign(to: &$outputValue)
 
-        $showDetailPressed
+        $outputValue
             .dropFirst()
-            .sink { [weak self] _ in
-                guard let self = self else { return }
-                context.data = Decimal(self.outputValue)
-            }
+            .map { Decimal($0) }
+            .assign(to: \.data, on: context)
             .store(in: &subscriptions)
     }
 }

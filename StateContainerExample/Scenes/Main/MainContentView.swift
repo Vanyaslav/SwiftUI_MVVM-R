@@ -32,13 +32,11 @@ struct MainContentView: View {
                        in: 0...MainContentViewModel.maxValue)
                 .padding()
 
-                Button { viewModel.showDetailPressed = () } label: { Text("Show detail !!!") }
+                Button { } label: { router.newDetailViewNavigation }
                     .padding()
                     .background(Color.orange.opacity(0.8))
 
-                router.detailViewNavigation
-
-            }.onAppear { viewModel.viewLoaded.send() }
+            }.onLoad { viewModel.viewLoaded.send() }
         }
     }
 }

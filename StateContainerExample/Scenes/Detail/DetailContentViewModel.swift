@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DetailContentViewModel {
+struct DetailContentViewModel {
     let data: String
 
     init(_ data: Decimal) {
