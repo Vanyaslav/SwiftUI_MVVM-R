@@ -50,7 +50,7 @@ extension MainContentView {
     }
 
     var navigationButton: some View {
-        Button { } label: { router.newDetailViewNavigation }
+        Button { } label: { router.showDetailViewNavigation(with: Decimal(viewModel.outputValue)) }
             .padding()
             .background(Color.orange.opacity(0.8))
     }
