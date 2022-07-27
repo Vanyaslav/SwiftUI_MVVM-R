@@ -29,7 +29,8 @@ struct MainContentView: View {
                 Slider(value: Binding<Double>(
                     get: { viewModel.outputValue },
                     set: { viewModel.manualProgress = $0 }),
-                       in: 0...MainContentViewModel.maxValue)
+                       in: 0...MainContentViewModel.maxValue,
+                       step: 0.01)
                 .padding()
 
                 Button { } label: { router.newDetailViewNavigation }

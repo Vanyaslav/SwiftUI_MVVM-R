@@ -17,7 +17,7 @@ class MainContentViewModel: ObservableObject {
     // out
     @Published private (set) var outputValue: Double = 0
 
-    init(with context: AppContext) {
+    init(with content: AppRouter.FlowData) {
         let loaded = viewLoaded.map { _ in Event.start }
         let pressed = makeProgressPressed.map { _ in Event.pressed }
         let progress = $manualProgress.map { Event.progress(value: Decimal($0)) }
@@ -34,7 +34,7 @@ class MainContentViewModel: ObservableObject {
         $outputValue
             .dropFirst()
             .map { Decimal($0) }
-            .assign(to: \.data, on: context)
+            .sink { content.data = $0 }
             .store(in: &subscriptions)
     }
 }

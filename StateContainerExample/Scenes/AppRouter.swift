@@ -7,23 +7,25 @@
 
 import SwiftUI
 
-class AppContext {
-    var data: Decimal = 0
+extension AppRouter {
+    class FlowData {
+        var data: Decimal = 0
+    }
 }
 
 class AppRouter {
-    private var context: AppContext
+    private var content: FlowData
 
-    init(context: AppContext = AppContext()) {
-        self.context = context
+    init(context: FlowData = FlowData()) {
+        self.content = context
     }
 
     var mainView: MainContentView {
-        MainContentView(with: .init(with: context), router: self)
+        MainContentView(with: .init(with: content), router: self)
     }
 
     var newDetailViewNavigation: NavigationLink<Text, DetailContentView>? {
-        NavigationLink(destination: DetailContentView(with: DetailContentViewModel(context.data)))
+        NavigationLink(destination: DetailContentView(with: DetailContentViewModel(content.data)))
         {  Text("Show detail !!!") }
     }
 }
