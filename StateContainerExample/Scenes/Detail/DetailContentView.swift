@@ -18,14 +18,15 @@ struct DetailContentView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 80) {
+            VStack(spacing: 70) {
                 Text(viewModel.initialData)
                     .font(.largeTitle)
-                TextEditor(text: $viewModel.updateValue)
+                Text("Enter new value within 0..1 range")
+                TextEditor(text: $viewModel.updateValue).font(.title)
                     .frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50, alignment: .center)
                     .background(RoundedRectangle(cornerRadius: 8)
                         .foregroundColor(Color.gray)
-                    )
+                    ).padding()
                 Spacer()
                 Button {
                     viewModel.confirmPressed = ()

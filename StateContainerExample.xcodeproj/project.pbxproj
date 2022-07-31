@@ -20,7 +20,12 @@
 		A19A66F02896A30E0022610C /* DataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A66EF2896A30E0022610C /* DataServiceTests.swift */; };
 		A19A66F22896C6F70022610C /* String+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A66F12896C6F70022610C /* String+Conversions.swift */; };
 		A19A66F42896C75C0022610C /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A66F32896C75C0022610C /* ValidationService.swift */; };
-		A1B7D6C928715C2500462CDD /* MainContentViewModel+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7D6C828715C2500462CDD /* MainContentViewModel+State.swift */; };
+		A19A66F6289713660022610C /* AppRouter+Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A66F5289713660022610C /* AppRouter+Dependency.swift */; };
+		A19A66F8289714130022610C /* MainContentView+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A66F7289714130022610C /* MainContentView+Views.swift */; };
+		A19A66FA289714770022610C /* MainContentViewModel+State+Options2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A66F9289714770022610C /* MainContentViewModel+State+Options2.swift */; };
+		A19A66FC289714890022610C /* MainContentViewModel+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A66FB289714890022610C /* MainContentViewModel+Event.swift */; };
+		A19A66FE289715160022610C /* MainContentViewModel+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A66FD289715160022610C /* MainContentViewModel+Navigation.swift */; };
+		A1B7D6C928715C2500462CDD /* MainContentViewModel+State+Options1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7D6C828715C2500462CDD /* MainContentViewModel+State+Options1.swift */; };
 		A1B7D6CB28715D3000462CDD /* DetailContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7D6CA28715D3000462CDD /* DetailContentViewModel.swift */; };
 		A1B7D6CD28715D4A00462CDD /* DetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7D6CC28715D4A00462CDD /* DetailContentView.swift */; };
 		A1F511E42895C94F000BEBA8 /* Decimal+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F511E32895C94F000BEBA8 /* Decimal+Conversions.swift */; };
@@ -53,7 +58,12 @@
 		A19A66EF2896A30E0022610C /* DataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceTests.swift; sourceTree = "<group>"; };
 		A19A66F12896C6F70022610C /* String+Conversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Conversions.swift"; sourceTree = "<group>"; };
 		A19A66F32896C75C0022610C /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
-		A1B7D6C828715C2500462CDD /* MainContentViewModel+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainContentViewModel+State.swift"; sourceTree = "<group>"; };
+		A19A66F5289713660022610C /* AppRouter+Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppRouter+Dependency.swift"; sourceTree = "<group>"; };
+		A19A66F7289714130022610C /* MainContentView+Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainContentView+Views.swift"; sourceTree = "<group>"; };
+		A19A66F9289714770022610C /* MainContentViewModel+State+Options2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainContentViewModel+State+Options2.swift"; sourceTree = "<group>"; };
+		A19A66FB289714890022610C /* MainContentViewModel+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainContentViewModel+Event.swift"; sourceTree = "<group>"; };
+		A19A66FD289715160022610C /* MainContentViewModel+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainContentViewModel+Navigation.swift"; sourceTree = "<group>"; };
+		A1B7D6C828715C2500462CDD /* MainContentViewModel+State+Options1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainContentViewModel+State+Options1.swift"; sourceTree = "<group>"; };
 		A1B7D6CA28715D3000462CDD /* DetailContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentViewModel.swift; sourceTree = "<group>"; };
 		A1B7D6CC28715D4A00462CDD /* DetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentView.swift; sourceTree = "<group>"; };
 		A1F511E32895C94F000BEBA8 /* Decimal+Conversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Conversions.swift"; sourceTree = "<group>"; };
@@ -154,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				A1357A2E2834498E0047752D /* AppRouter.swift */,
+				A19A66F5289713660022610C /* AppRouter+Dependency.swift */,
 				A100C6EC28918178005B4D54 /* Extenstion */,
 				A100C6E9289180C4005B4D54 /* Utils */,
 				A1B7D6CF2871CD6400462CDD /* Main */,
@@ -166,8 +177,12 @@
 			isa = PBXGroup;
 			children = (
 				A148207B282E97A50024A38F /* MainContentView.swift */,
+				A19A66F7289714130022610C /* MainContentView+Views.swift */,
 				A1357A2C2834495A0047752D /* MainContentViewModel.swift */,
-				A1B7D6C828715C2500462CDD /* MainContentViewModel+State.swift */,
+				A19A66FB289714890022610C /* MainContentViewModel+Event.swift */,
+				A1B7D6C828715C2500462CDD /* MainContentViewModel+State+Options1.swift */,
+				A19A66F9289714770022610C /* MainContentViewModel+State+Options2.swift */,
+				A19A66FD289715160022610C /* MainContentViewModel+Navigation.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -300,12 +315,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A13E422A27F70D2400E9582E /* AppDelegate.swift in Sources */,
+				A19A66FE289715160022610C /* MainContentViewModel+Navigation.swift in Sources */,
 				A100C6EE28918197005B4D54 /* View+OnLoad.swift in Sources */,
-				A1B7D6C928715C2500462CDD /* MainContentViewModel+State.swift in Sources */,
+				A1B7D6C928715C2500462CDD /* MainContentViewModel+State+Options1.swift in Sources */,
+				A19A66FC289714890022610C /* MainContentViewModel+Event.swift in Sources */,
 				A1357A2F2834498E0047752D /* AppRouter.swift in Sources */,
 				A1B7D6CD28715D4A00462CDD /* DetailContentView.swift in Sources */,
+				A19A66FA289714770022610C /* MainContentViewModel+State+Options2.swift in Sources */,
 				A1357A2D2834495B0047752D /* MainContentViewModel.swift in Sources */,
 				A148207C282E97A50024A38F /* MainContentView.swift in Sources */,
+				A19A66F8289714130022610C /* MainContentView+Views.swift in Sources */,
+				A19A66F6289713660022610C /* AppRouter+Dependency.swift in Sources */,
 				A1F511E42895C94F000BEBA8 /* Decimal+Conversions.swift in Sources */,
 				A1B7D6CB28715D3000462CDD /* DetailContentViewModel.swift in Sources */,
 				A19A66F42896C75C0022610C /* ValidationService.swift in Sources */,

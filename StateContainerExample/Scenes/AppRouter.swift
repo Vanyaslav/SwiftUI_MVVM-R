@@ -9,27 +9,22 @@ import SwiftUI
 
 extension AppRouter {
     func showMainView() -> MainContentView {
-        .init(with: .init(router: self, dataService: dataService))
+        .init(with: .init(router: self, dataService: dependency.dataService))
     }
 
     func showDetailViewNavigation(with data: Decimal, title: String) -> NavigationLink<Text, DetailContentView> {
         .init(destination: .init(with: .init(data: data,
-                                             dataService: dataService,
-                                             validateServices: validationService)))
+                                             dataService: dependency.dataService,
+                                             validateServices: dependency.validationService)))
         { Text(title) }
     }
 }
 
 class AppRouter {
-    private let dataService: DataService
-    private let validationService: ValidationService
+    private let dependency: DependencyContainer
 
-    init(
-        dataService: DataService = DataService(),
-        validationService: ValidationService = ValidationService()
-    ) {
-        self.dataService = dataService
-        self.validationService = validationService
+    init(dependency: DependencyContainer = DependencyContainer()) {
+        self.dependency = dependency
         defaultUIObject()
     }
 }
