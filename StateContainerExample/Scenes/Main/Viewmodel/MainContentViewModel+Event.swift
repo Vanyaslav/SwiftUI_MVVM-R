@@ -8,11 +8,6 @@
 import Foundation
 
 extension MainContentViewModel {
-    static var maxValue: Double { 1.0 }
-    static var defaultValue: Decimal { 0.4 }
-}
-
-extension MainContentViewModel {
     enum Event {
         case start(value: Decimal?),
              pressed,
