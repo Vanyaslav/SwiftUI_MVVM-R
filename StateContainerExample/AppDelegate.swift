@@ -10,10 +10,9 @@ import SwiftUI
 @main
 struct TestApp: App {
     var body: some Scene {
-
         WindowGroup {
-            AppRouter().mainView
+            AppRouter()
+                .showMainView()
         }
     }
 }
-

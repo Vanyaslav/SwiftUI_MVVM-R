@@ -9,12 +9,9 @@ import SwiftUI
 
 struct MainContentView: View {
     @ObservedObject private var viewModel: MainContentViewModel
-    private let router: AppRouter
     
-    init(with viewModel: MainContentViewModel,
-         router: AppRouter) {
+    init(with viewModel: MainContentViewModel) {
         self.viewModel = viewModel
-        self.router = router
     }
     
     var body: some View {
@@ -24,14 +21,15 @@ struct MainContentView: View {
                 recentValueLabel
                 progressSlider
                 navigationButton
-            }.onLoad { viewModel.viewLoaded.send() }
+            }
+            .onAppear { viewModel.viewLoaded.send() }
         }
     }
 }
 
 extension MainContentView {
     var progressButton: some View {
-        Button { viewModel.makeProgressPressed.send() } label: { Text("Progress !!!") }
+        Button { viewModel.progressPressed.send() } label: { Text("Progress !!!") }
             .padding()
             .background(Color.black.opacity(0.8))
     }
@@ -50,7 +48,7 @@ extension MainContentView {
     }
 
     var navigationButton: some View {
-        Button { } label: { router.showDetailViewNavigation(with: Decimal(viewModel.outputValue)) }
+        Button { } label: { viewModel.navigateToNextView(title: "Show detail !!!") }
             .padding()
             .background(Color.orange.opacity(0.8))
     }

@@ -6,16 +6,34 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DetailContentView: View {
-    private let viewModel: DetailContentViewModel
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    @ObservedObject private var viewModel: DetailContentViewModel
 
     init(with viewModel: DetailContentViewModel) {
         self.viewModel = viewModel
     }
 
     var body: some View {
-        Text(viewModel.data)
-            .font(.largeTitle)
+        ScrollView {
+            VStack(spacing: 80) {
+                Text(viewModel.initialData)
+                    .font(.largeTitle)
+                TextEditor(text: $viewModel.updateValue)
+                    .frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50, alignment: .center)
+                    .background(RoundedRectangle(cornerRadius: 8)
+                        .foregroundColor(Color.gray)
+                    )
+                Spacer()
+                Button {
+                    viewModel.confirmPressed = ()
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Confirm")
+                }
+            }
+        }
     }
 }
