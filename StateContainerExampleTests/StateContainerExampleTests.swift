@@ -38,6 +38,10 @@ class StateContainerExampleTests: XCTestCase {
         XCTAssertEqual(service.retrieveValue(), 0.98)
         viewModel.manualProgress = 0.999999999999999999999994399394390
         XCTAssertEqual(service.retrieveValue(), 1)
+        viewModel.progressPressed.send()
+        XCTAssertEqual(service.retrieveValue(), 0)
+        viewModel.progressPressed.send()
+        XCTAssertEqual(service.retrieveValue(), 0.1)
     }
 
     func testDetailViewModel() {
@@ -49,6 +53,7 @@ class StateContainerExampleTests: XCTestCase {
         model.confirmPressed = ()
         XCTAssertEqual(service.retrieveValue(), 0.45)
         model.updateValue = "s"
+        model.confirmPressed = ()
         XCTAssertEqual(service.retrieveValue(), 0.45)
         model.updateValue = "0.0000000000000012"
         XCTAssertEqual(service.retrieveValue(), 0.45)

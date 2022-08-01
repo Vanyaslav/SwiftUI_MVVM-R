@@ -26,7 +26,7 @@ class MainContentViewModel: ObservableObject {
         self.router = router
 
         let loaded = viewLoaded
-            .map { _ in Event.start(value: dataService.hasAlreadyRun
+            .map { _ in Event.start(value: dataService.appDidAlreadyRun
                                     ? dataService.retrieveValue()
                                     : nil) }
         let pressed = progressPressed

@@ -42,7 +42,7 @@ class DataService: DataServiceProtocol {
 }
 
 extension DataService {
-    var hasAlreadyRun: Bool {
+    var appDidAlreadyRun: Bool {
         let hasAlreadyRun = userDefaults.bool(forKey: .hasAlreadyRun)
         userDefaults.set(true, forKey: .hasAlreadyRun)
         return hasAlreadyRun
