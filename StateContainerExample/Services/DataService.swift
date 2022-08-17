@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     fileprivate static let storedValue: Self = "storedValue"
-    fileprivate static let hasAlreadyRun: Self = "hasAlreadyRun"
+    fileprivate static let firstRun: Self = "firstRun"
 }
 
 protocol DataServiceProtocol {
@@ -37,14 +37,14 @@ class DataService: DataServiceProtocol {
 
     func clean() {
         userDefaults
-            .set(false, forKey: .hasAlreadyRun)
+            .set(false, forKey: .firstRun)
     }
 }
 
 extension DataService {
-    var appDidAlreadyRun: Bool {
-        let hasAlreadyRun = userDefaults.bool(forKey: .hasAlreadyRun)
-        userDefaults.set(true, forKey: .hasAlreadyRun)
-        return hasAlreadyRun
+    var appFirstRun: Bool {
+        let isFirstRun = userDefaults.bool(forKey: .firstRun)
+        userDefaults.set(false, forKey: .firstRun)
+        return isFirstRun
     }
 }
