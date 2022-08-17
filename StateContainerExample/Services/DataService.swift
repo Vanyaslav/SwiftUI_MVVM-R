@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 extension String {
     fileprivate static let storedValue: Self = "storedValue"
@@ -14,7 +15,7 @@ extension String {
 
 protocol DataServiceProtocol {
     func update(_ value: Decimal)
-    func retrieveValue() -> Decimal
+    func retrieveValue() -> AnyPublisher<Decimal, Never>
     func clean()
 }
 
@@ -31,13 +32,14 @@ class DataService: DataServiceProtocol {
                  forKey: .storedValue)
     }
 
-    func retrieveValue() -> Decimal {
-        Decimal(Double(userDefaults.integer(forKey: .storedValue)) / 100)
+    func retrieveValue() -> AnyPublisher<Decimal, Never> {
+        Just(Decimal(userDefaults.integer(forKey: .storedValue) / 100))
+            .eraseToAnyPublisher()
     }
 
     func clean() {
         userDefaults
-            .set(false, forKey: .firstRun)
+            .set(true, forKey: .firstRun)
     }
 }
 

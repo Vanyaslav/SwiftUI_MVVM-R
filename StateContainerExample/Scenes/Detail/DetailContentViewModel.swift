@@ -26,7 +26,7 @@ class DetailContentViewModel: ObservableObject {
         $confirmPressed
             .dropFirst()
             .sink { [weak self] in
-                guard let self = self,
+                    guard let self = self,
                       validateServices
                     .validate(self.updateValue.decimal,
                               as: .number)

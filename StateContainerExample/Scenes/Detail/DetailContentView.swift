@@ -22,15 +22,21 @@ struct DetailContentView: View {
                 Text(viewModel.initialData)
                     .font(.largeTitle)
                 Text("Enter new value within 0..1 range")
-                TextEditor(text: $viewModel.updateValue).font(.title)
-                    .frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50, alignment: .center)
+                TextEditor(text: $viewModel.updateValue)
+                    .font(.title)
+                    .frame(maxWidth: .infinity,
+                           minHeight: 50,
+                           maxHeight: 50,
+                           alignment: .center)
                     .background(RoundedRectangle(cornerRadius: 8)
                         .foregroundColor(Color.gray)
                     ).padding()
                 Spacer()
                 Button {
                     viewModel.confirmPressed = ()
-                    presentationMode.wrappedValue.dismiss()
+                    presentationMode
+                        .wrappedValue
+                        .dismiss()
                 } label: {
                     Text("Confirm")
                 }

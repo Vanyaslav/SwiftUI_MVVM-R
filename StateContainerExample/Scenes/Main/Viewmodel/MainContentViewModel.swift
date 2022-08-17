@@ -26,17 +26,17 @@ class MainContentViewModel: ObservableObject {
         self.router = router
 
         let loaded = viewLoaded
-            .map { dataService.appFirstRun
-                ? nil
-                : dataService.retrieveValue() }
+            .flatMap(dataService.retrieveValue)
+            .map { dataService.appFirstRun ? nil : $0 }
             .map(Event.start)
+
         let pressed = progressPressed
             .map { _ in Event.pressed }
 
         let progress = $manualProgress
             .dropFirst()
             .map { Decimal($0) }
-            .map (Event.progress)
+            .map(Event.progress)
 
         Publishers
             .Merge3(loaded, pressed, progress)

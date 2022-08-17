@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Combine
 @testable import StateContainerExample
 
 extension UserDefaults {
@@ -17,23 +18,22 @@ extension UserDefaults {
 }
 
 class DataServiceTests: XCTestCase {
-
     var service: DataService!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         service =  try? DataService(userDefaults: .test)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         service.clean()
     }
 
     func testServicePersistance() throws {
         service.update(30)
-        XCTAssertEqual(30, service.retrieveValue())
+        let sut1 = try awaitPublisher(service.retrieveValue())
+        XCTAssertEqual(sut1, 30)
         service.update(0)
-        XCTAssertNotEqual(30, service.retrieveValue())
+        let sut2 = try awaitPublisher(service.retrieveValue())
+        XCTAssertEqual(sut2, 0)
     }
 }
