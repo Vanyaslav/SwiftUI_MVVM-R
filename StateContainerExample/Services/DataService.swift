@@ -14,7 +14,7 @@ extension String {
 }
 
 protocol DataServiceProtocol {
-    func update(_ value: Decimal) -> AnyPublisher<Decimal, Never>
+    func update(_ value: Decimal)
     func retrieveValue() -> AnyPublisher<Decimal, Never>
     func clean()
 }
@@ -26,14 +26,10 @@ class DataService: DataServiceProtocol {
         self.userDefaults = userDefaults
     }
 
-    func update(_ value: Decimal) -> AnyPublisher<Decimal, Never> {
-        Just(())
-            .map {
+    func update(_ value: Decimal) {
                 userDefaults
                     .set((value * 100).integerValue,
                          forKey: .storedValue)
-                return value
-            }.eraseToAnyPublisher()
 
     }
 
