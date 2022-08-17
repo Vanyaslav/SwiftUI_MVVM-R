@@ -29,10 +29,10 @@ class DataServiceTests: XCTestCase {
     }
 
     func testServicePersistance() throws {
-        service.update(30)
+        _ = try awaitPublisher(service.update(30))
         let sut1 = try awaitPublisher(service.retrieveValue())
         XCTAssertEqual(sut1, 30)
-        service.update(0)
+        _ = try awaitPublisher(service.update(0))
         let sut2 = try awaitPublisher(service.retrieveValue())
         XCTAssertEqual(sut2, 0)
     }

@@ -42,11 +42,9 @@ class MainContentViewModel: ObservableObject {
             .Merge3(loaded, pressed, progress)
 //           .scan(State()) { state, event in  State.apply(event, for: state) }.print() // option 2
             .scan(State()) { state, event in state.apply(event) }.print() // option 1
-            .map {
-                let result = $0.value
-                dataService.update(result)
-                return result.doubleValue
-            }
+            .map { $0.value }
+            .flatMap(dataService.update)
+            .map { $0.doubleValue}
             .assign(to: &$outputValue)
     }
 }
