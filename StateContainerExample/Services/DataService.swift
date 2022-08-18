@@ -27,14 +27,14 @@ class DataService: DataServiceProtocol {
     }
 
     func update(_ value: Decimal) {
-                userDefaults
-                    .set((value * 100).integerValue,
-                         forKey: .storedValue)
+            userDefaults
+                .set((value * 100).integerValue,
+                     forKey: .storedValue)
 
     }
 
     func retrieveValue() -> AnyPublisher<Decimal, Never> {
-        Just(Decimal(userDefaults.integer(forKey: .storedValue) / 100))
+        Just(Decimal(Double(userDefaults.integer(forKey: .storedValue)) / 100))
             .eraseToAnyPublisher()
     }
 

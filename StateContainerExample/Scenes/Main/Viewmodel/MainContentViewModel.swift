@@ -27,7 +27,7 @@ class MainContentViewModel: ObservableObject {
 
         let loaded = viewLoaded
             .flatMap(dataService.retrieveValue)
-            .map { dataService.appFirstRun ? nil : $0 }
+            .map { dataService.appFirstRun ? Self.defaultValue : $0 }
             .map(Event.start)
 
         let pressed = progressPressed

@@ -9,7 +9,7 @@ import Foundation
 
 extension MainContentViewModel {
     enum Event {
-        case start(value: Decimal?),
+        case start(value: Decimal),
              pressed,
              progress(value: Decimal)
     }

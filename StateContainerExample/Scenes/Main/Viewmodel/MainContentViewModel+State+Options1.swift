@@ -14,9 +14,7 @@ extension MainContentViewModel {
         func apply(_ action: Event) -> Self {
             var state = self
             switch action {
-            case .start(value: .none):
-                state.value = defaultValue
-            case .start(let value?):
+            case .start(let value):
                 state.value = value
             case .progress(let value):
                 state.value = value
