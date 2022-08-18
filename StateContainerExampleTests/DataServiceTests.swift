@@ -25,7 +25,7 @@ class DataServiceTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        service.clean()
+        service.reset()
     }
 
     func testServicePersistance() throws {

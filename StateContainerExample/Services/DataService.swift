@@ -16,7 +16,7 @@ extension String {
 protocol DataServiceProtocol {
     func update(_ value: Decimal)
     func retrieveValue() -> AnyPublisher<Decimal, Never>
-    func clean()
+    func reset()
 }
 
 class DataService: DataServiceProtocol {
@@ -38,7 +38,7 @@ class DataService: DataServiceProtocol {
             .eraseToAnyPublisher()
     }
 
-    func clean() {
+    func reset() {
         userDefaults
             .set(true, forKey: .firstRun)
     }

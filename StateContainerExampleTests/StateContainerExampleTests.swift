@@ -18,11 +18,11 @@ class StateContainerExampleTests: XCTestCase {
         service = try? DataService(userDefaults: .test)
         validation = ValidationService()
 
-        service.clean()
+        service.reset()
     }
 
     override func tearDownWithError() throws {
-        service.clean()
+        service.reset()
     }
 
     func testState() throws {
@@ -51,7 +51,7 @@ class StateContainerExampleTests: XCTestCase {
     }
 
     func testDetailViewModel() throws {
-        service.clean()
+        service.reset()
         let sut = DetailContentViewModel(data: Decimal(0.23),
                                          dataService: service,
                                          validateServices: validation)
