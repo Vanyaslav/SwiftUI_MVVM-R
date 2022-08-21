@@ -23,7 +23,7 @@ extension AppRouter {
 class AppRouter {
     private let dependency: DependencyContainer
 
-    init(dependency: DependencyContainer = DependencyContainer()) {
+    init(dependency: DependencyContainer = .init()) {
         self.dependency = dependency
         defaultUIObject()
     }

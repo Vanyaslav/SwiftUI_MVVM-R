@@ -18,8 +18,8 @@ extension AppRouter {
         let validationService: ValidationService
 
         init(
-            dataService: DataService = DataService(),
-            validationService: ValidationService = ValidationService()
+            dataService: DataService = .init(),
+            validationService: ValidationService = .init()
         ) {
             self.dataService = dataService
             self.validationService = validationService

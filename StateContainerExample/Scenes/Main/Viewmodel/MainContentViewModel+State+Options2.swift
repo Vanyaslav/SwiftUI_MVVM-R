@@ -17,8 +17,8 @@ extension MainContentViewModel {
 //
 //        static func apply(_ action: Event, for state: State) -> Self {
 //            switch action {
-//            case .start:
-//                return State(value: defaultValue)
+//            case .start(let value):
+//                return State(value: value)
 //            case .progress(let value):
 //                return State(value: value)
 //            case .pressed:
